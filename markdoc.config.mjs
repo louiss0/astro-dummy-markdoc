@@ -1,23 +1,23 @@
 import FormattedDateUsingAString from "/src/components/FormattedDateUsingAString.astro"
 
 import { defineMarkdocConfig } from '@astrojs/markdoc/config';
-
+import { DateString, generateObjectWithTransformFunctionUsingACallbackWithFirstParameterPassedIn } from "./src/utilities";
 export default defineMarkdocConfig({
    functions:{
-    uppercase: {
-      transform(parameters) {
-        const string = parameters[0];
-    
-        return typeof string === 'string' ? string.toUpperCase() : string;
-      },
-    }
+    uppercase: generateObjectWithTransformFunctionUsingACallbackWithFirstParameterPassedIn(
+      ((value) =>{
+        
+        console.log(Date.parse(value))
+        typeof value === 'string' ? value.toUpperCase() : value
+      })
+    ) 
    },
     tags:{
       formatedTime:{
-        render:FormattedDateUsingAString,
+        render: FormattedDateUsingAString,
         attributes:{
           dateString:{
-            type:String,
+            type: DateString,
             required:true 
           }
         },

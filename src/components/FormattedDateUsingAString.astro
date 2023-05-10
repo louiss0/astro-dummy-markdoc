@@ -1,0 +1,17 @@
+---
+import FormattedDate from "./FormattedDate.astro"
+
+type Props = {
+  dateString:string
+}
+const { dateString } = Astro.props
+
+if(isNaN(Date.parse(dateString))) {
+
+  throw new Error("This date must be parseable")
+
+}
+
+---
+
+<FormattedDate date={new Date(dateString)} />

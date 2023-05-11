@@ -5,11 +5,8 @@ import { DateString, generateObjectWithTransformFunctionUsingACallbackWithFirstP
 export default defineMarkdocConfig({
    functions:{
     uppercase: generateObjectWithTransformFunctionUsingACallbackWithFirstParameterPassedIn(
-      ((value) =>{
-        
-        console.log(Date.parse(value))
-        typeof value === 'string' ? value.toUpperCase() : value
-      })
+      ((value) => typeof value === 'string' ? value.toUpperCase() : value
+      )
     ) 
    },
     tags:{

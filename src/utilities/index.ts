@@ -63,7 +63,7 @@ class DateString extends MarkdocValidatorAttribute {
 
     override transform(value:string){
 
-        return Date.parse(value)
+        return value
     }
 
     override returnMardocErrorObjectOrNull(value:unknown, ) {

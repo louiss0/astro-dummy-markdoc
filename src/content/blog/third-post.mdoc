@@ -5,25 +5,36 @@ pubDate: "Jul 15 2022"
 heroImage: "/placeholder-hero.jpg"
 ---
 
-
 ```jsx
 <Test prop="nice" />
 ```
-{% uppercase("Boo") %}
 
+{% uppercase($entry.data.description) %}
+
+{% formatedTime dateString=$entry.data.description /%}
 
 {% table #random-table  %}
-* Side 1
-* Side 2
+
+- Side 1
+- Side 2
+
 ---
-* foo
-* bar
+
+- foo
+- bar
+
 ---
-* baz
-* zabu
+
+- baz
+- zabu
+
 ---
-* eru
-* pwe
+
+- eru
+- pwe
+
+---
+
 {% /table %}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna

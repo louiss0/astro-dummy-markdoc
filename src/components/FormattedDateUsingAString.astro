@@ -7,7 +7,6 @@ type Props = {
 const { dateString } = Astro.props
 
 if(isNaN(Date.parse(dateString))) {
-
   throw new Error("This date must be parseable")
 
 }

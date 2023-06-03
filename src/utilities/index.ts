@@ -1,4 +1,4 @@
-import {defineMarkdocConfig  } from "@astrojs/markdoc/src/config";
+import {defineMarkdocConfig } from "@astrojs/markdoc/src/config";
 
 const MARKDOC_ERROR_LEVEL = Object.freeze([
 "debug",
@@ -30,6 +30,8 @@ function generateObjectWithTransformFunctionUsingACallbackWithFirstParameterPass
         }
     })
 }
+
+const markdocFilter = generateObjectWithTransformFunctionUsingACallbackWithFirstParameterPassedIn
 
 function generateMarkdocErrorObject(id:string,level:MarkdocErrorLevel,message:string) {
     

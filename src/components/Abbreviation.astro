@@ -1,0 +1,16 @@
+---
+
+import { HTMLAttributes } from "astro/types"
+import { Debug } from "astro/components"
+
+type Props = HTMLAttributes<"abbr"> & { primary:string}
+
+const {props} = Astro
+
+
+// const abbreviation = primary?.split(" ")?.map(str=> str.splice(0,1)).join("")
+
+---
+
+<Debug {props} />
+<!-- <abbr title={primary} {...rest}>{abbreviation}</abbr> -->

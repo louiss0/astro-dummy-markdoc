@@ -1,18 +1,14 @@
-import FormattedDateUsingAString from "/src/components/FormattedDateUsingAString.astro"
-import Abbreviation from "/src/components/Abbreviation.astro"
 
-import { defineMarkdocConfig } from '@astrojs/markdoc/config';
-import { DateString, generateObjectWithTransformFunctionUsingACallbackWithFirstParameterPassedIn } from "./src/utilities";
+import { defineMarkdocConfig, component } from '@astrojs/markdoc/config';
+
+import { DateString } from './src/utilities/index.ts';
+
+
 export default defineMarkdocConfig({
-   functions:{
-    uppercase: generateObjectWithTransformFunctionUsingACallbackWithFirstParameterPassedIn(
-      ((value) => typeof value === 'string' ? value.toUpperCase() : value
-      )
-    ) 
-   },
+    
     tags:{
       formatedTime:{
-        render: FormattedDateUsingAString,
+        render: component("./src/components/FormattedDateUsingAString.astro"),
         attributes:{
           dateString:{
             type: DateString,
@@ -21,8 +17,18 @@ export default defineMarkdocConfig({
         },
         selfClosing:true
       },
+
+      figure:{
+        render: "figure",
+        children:[
+          "paragraph",
+          "img",
+          "ul",
+        ]
+      },
+
       abbr: {
-        render:Abbreviation,
+        render: component("./src/components/Abbreviation.astro"),
         attributes:{
           primary:{
             type:String,
